@@ -72,3 +72,18 @@ class CDbManager:
             logging.debug(" * SQL Error: {}".format(e))
             # Flash error message
             flash('SQL Error!', category='error')
+
+    def get_all_rezervations(self):
+        try:
+            self.cursor.execute(("SELECT * FROM rezervare"))
+            # Fetch all the data
+            hotels_data = self.cursor.fetchall()
+            # Check if the retrieved data is not empty
+            if hotels_data != "":
+                return hotels_data
+            else:
+                logging.debug(" * Rooms Data is NULL!!! Please DEBUG!!")
+        except mysql.connector.IntegrityError as e:
+            logging.debug(" * SQL Error: {}".format(e))
+            # Flash error message
+            flash('SQL Error!', category='error')
