@@ -11,7 +11,7 @@ def view_rooms():
 
     print(all_rooms)
     var = all_rooms[0][2]
-    return render_template("base.html", var = var)
+    return render_template("base.html", var = all_rooms)
 
 @hotels.route('/logout')
 def logout():
